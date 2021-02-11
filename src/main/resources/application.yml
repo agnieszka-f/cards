@@ -1,0 +1,27 @@
+server:
+  port: 7711
+spring:
+  application:
+    name: cards
+  profiles:
+    active: production
+
+# ACTUATOR INFO
+info:
+  app:
+    name: "Cards"
+    version: "0.0.1"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${server.port}
+
+# REFRESH BEAN
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# CLIENT EUREKA
+eureka:
+  client: ${eureka-client}
